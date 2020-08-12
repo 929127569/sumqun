@@ -10,7 +10,7 @@
                 </li>
                 <li>
                    <label>密码：</label> 
-                   <input type="text" placeholder="输入登录密码" v-model="upwd">
+                   <input type="password" placeholder="输入登录密码" v-model="upwd">
                 </li>
             </ul>
             <input type="submit" value="登录" class="btn-submit" @click="Login">
@@ -52,8 +52,10 @@ export default {
         Login(){
             if(this.checkuname()){
                 this.axios.post('/user/login','uname='+this.uname+'&upwd='+this.upwd).then(res=>{
-                    console.log(res.data);
+                    console.log(res.data.results);
                    if(res.data.code==1){
+                        this.$store.commit('login_mutations',res.data.results);
+                        sessionStorage.setItem('isLogin',true);
                         this.$router.push('/')
                         }else{
                             alert("对不起 用户名或密码错误");

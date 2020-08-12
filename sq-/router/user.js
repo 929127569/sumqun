@@ -45,9 +45,9 @@ router.post('/login',(req,res)=>{
     pool.query(sql,[uname,upwd],(err,results)=>{
         if(err)throw err;
         if(results.length==1){
-			res.send({message:'成功',code:1,})
+			res.send({message:'成功',code:1,results:results})
 		}else{
-			res.send({message:'失败',code:0})
+			res.send({message:'失败',code:0,results:results})
 		}
     })
 })

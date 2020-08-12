@@ -12,10 +12,16 @@
                <!-- <input type="submit"> -->
                <!-- <span>111</span> -->
             </div>
-            <div id="status">
+            <div id="status" class="status" v-if="!this.$store.state.isLogin">
                 <router-link to="/login">
                     <img src="/hy.png" alt=""><br>
                     <span>登录</span>
+                </router-link>
+            </div>
+            <div class="status" v-else>
+                <router-link to="javascript:;">
+                    <img src="/hy.png" alt=""><br>
+                    <span>会员中心</span>
                 </router-link>
             </div>
             <div id="cart">
@@ -109,7 +115,7 @@ div{
     margin-left: 100px;
     margin-right: 30px;
 }
-#status{
+.status{
     width: 50px;
     margin: 15px 20px;
 }
@@ -118,7 +124,7 @@ div{
     margin: 15px 10px;
 }
 
-#status a,#cart a{
+.status a,#cart a{
     color: #1296D8;
     font-size: 12px;
     width: 50px;
