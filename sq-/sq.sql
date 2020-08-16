@@ -15,8 +15,9 @@ CREATE TABLE sq_user(
     gender TINYINT /**0-女 1-男**/
 );
 
-INSERT INTO sq_user VALUES(NULL,'dingding','123456','ding@qq.com','13556485136','img/avatar/','丁丁',1),
-(NULL,'dangdang','963852','dang@qq.com','13556451436','img/avatar/','dangdang',1);
+INSERT INTO sq_user VALUES
+(NULL,'963852741','9ae2be73b58b565bce3e47493a56e26a','dang@qq.com','13556451436','img/avatar/','dangdang',1),
+(NULL,'123456789','25f9e794323b453885f5181f1b624d0b','dang@qq.com','13556451436','img/avatar/','dangdang',1);
 
 
 /**商品分类表**/
@@ -64,12 +65,12 @@ CREATE TABLE sq_product(
 );
 
 INSERT INTO sq_product VALUES
-(1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥800.00','C662ML',100,1,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png|http://localhost:3000/img/product/10013.png|http://localhost:3000/img/product/10014.png|http://localhost:3000/img/product/1001.png','http://localhost:3000/img/pro/10011.png|http://localhost:3000/img/pro/10012.png|http://localhost:3000/img/pro/10013.png|http://localhost:3000/img/pro/10014.png|http://localhost:3000/img/pro/10015.png|http://localhost:3000/img/pro/10016.png|http://localhost:3000/img/pro/10017.png|http://localhost:3000/img/pro/10018.png|http://localhost:3000/img/pro/1.png|http://localhost:3000/img/pro/2.png'),
+(1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥800.00','C662ML|S662ML',100,1,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png|http://localhost:3000/img/product/10013.png|http://localhost:3000/img/product/10014.png|http://localhost:3000/img/product/1001.png','http://localhost:3000/img/pro/10011.png|http://localhost:3000/img/pro/10012.png|http://localhost:3000/img/pro/10013.png|http://localhost:3000/img/pro/10014.png|http://localhost:3000/img/pro/10015.png|http://localhost:3000/img/pro/10016.png|http://localhost:3000/img/pro/10017.png|http://localhost:3000/img/pro/1.png|http://localhost:3000/img/pro/2.png'),
 -- (1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥800.00','S662ML',100,0,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png',''),
 -- (1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥850.00','C702M',100,0,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png',''),
 -- (1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥850.00','S702M',100,0,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png',''),
 -- (1001,10,'七彩鸿','希克斯 路亚竿 鸿 全富士配置 SIC导环 七彩电镀涂装 1.98米/2.13米/2.28米','¥900.00','C752MH',100,0,'http://localhost:3000/img/product/1001.png|http://localhost:3000/img/product/10012.png',''),
-(1002,10,'鸬鹚','希克斯 路亚竿 鸬鹚 FUJI配置 黄金樟木手柄','¥995.00','S602UL',100,1,'http://localhost:3000/img/product/1002.png|http://localhost:3000/img/product/10022.png|http://localhost:3000/img/product/10023.png|http://localhost:3000/img/product/10024.png|http://localhost:3000/img/product/10025.png','http://localhost:3000/img/pro/10021.png|http://localhost:3000/img/pro/10022.png|http://localhost:3000/img/pro/10023.png|http://localhost:3000/img/pro/10024.png|http://localhost:3000/img/pro/10025.png|http://localhost:3000/img/pro/10026.png|http://localhost:3000/img/pro/10027.png|http://localhost:3000/img/pro/10028.png|http://localhost:3000/img/pro/10029.png|http://localhost:3000/img/pro/1.png|http://localhost:3000/img/pro/2.png'),
+(1002,10,'鸬鹚','希克斯 路亚竿 鸬鹚 FUJI配置 黄金樟木手柄','¥995.00','S602UL|C602UL',100,1,'http://localhost:3000/img/product/1002.png|http://localhost:3000/img/product/10022.png|http://localhost:3000/img/product/10023.png|http://localhost:3000/img/product/10024.png|http://localhost:3000/img/product/10025.png','http://localhost:3000/img/pro/10021.png|http://localhost:3000/img/pro/10022.png|http://localhost:3000/img/pro/10023.png|http://localhost:3000/img/pro/10024.png|http://localhost:3000/img/pro/10025.png|http://localhost:3000/img/pro/10026.png|http://localhost:3000/img/pro/10027.png|http://localhost:3000/img/pro/10028.png|http://localhost:3000/img/pro/10029.png|http://localhost:3000/img/pro/1.png|http://localhost:3000/img/pro/2.png'),
 -- (1002,10,'鸬鹚','希克斯 路亚竿 鸬鹚 FUJI配置 黄金樟木手柄','¥995.00','C602UL',100,0,'http://localhost:3000/img/product/1002.png|http://localhost:3000/img/product/10022.png',''),
 -- (1002,10,'鸬鹚','希克斯 路亚竿 鸬鹚 FUJI配置 黄金樟木手柄','¥970.00','S562UL',100,0,'http://localhost:3000/img/product/1002.png|http://localhost:3000/img/product/10022.png',''),
 -- (1002,10,'鸬鹚','希克斯 路亚竿 鸬鹚 FUJI配置 黄金樟木手柄','¥970.00','C562UL',100,0,'http://localhost:3000/img/product/1002.png|http://localhost:3000/img/product/10022.png',''),

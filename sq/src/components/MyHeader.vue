@@ -19,10 +19,10 @@
                 </router-link>
             </div>
             <div class="status" v-else>
-                <router-link to="javascript:;">
+                <a href="javascript:;">
                     <img src="/hy.png" alt=""><br>
-                    <span>会员中心</span>
-                </router-link>
+                    <span @click="logout">退出</span>
+                </a>
             </div>
             <div id="cart">
                 <router-link to="/shopcar">
@@ -53,6 +53,14 @@ export default {
         }
     },
     methods:{
+        logout(){
+            this.$store.commit('logout_mutations',false);
+            // sessionStorage.setItem('isLogin',false);
+            localStorage.clear();
+            sessionStorage.clear();
+            this.$store.state.car=[];
+            this.$router.push('/')
+        },
         getTitle(){
             this.axios.get('/index/title').then(res=>{
                 // console.log("title请求成功");

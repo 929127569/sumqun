@@ -1,7 +1,7 @@
 <template>
     <div>
         <button @click="minus" class="mybtn">-</button>
-        <input type="text" v-model="n">
+        <input type="text" v-model="count" >
         <button @click="add" class="mybtn">+</button>
     </div>
 </template>
@@ -31,17 +31,26 @@ input{
 export default {
     data(){
         return{
-            n:1,
+            count:1,
         }
     },
     methods:{
+
         minus(){
-            if(this.n>1){
-                this.n--
+            if(this.count>1){
+            this.count--;
+            this.$emit('getCount',this.count);
+            
             }
         },
         add(){
-            this.n++;
+            this.count++;
+            this.$emit('getCount',this.count);
+            
+            // let product={
+            //        count:this.count 
+            //     }
+            // this.$store.commit('addTocar',product);
         }
     }
 }
