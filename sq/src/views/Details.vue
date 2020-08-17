@@ -5,7 +5,7 @@
     </div>
     <div class="pronav">
       <div>
-        <a href="/index">首页</a>
+        <router-link to="/">首页</router-link>
         <span>{{goods.fid}}</span>
       </div>
     </div>
@@ -42,12 +42,12 @@
               <dl>
                 <dt>市场价</dt>
                 <dd>
-                  <s>{{price}}</s>
+                  <s>¥{{price}}</s>
                 </dd>
               </dl>
               <dl>
                 <dt>销售价</dt>
-                <dd>{{price}}</dd>
+                <dd>¥{{price}}</dd>
                 <!--标记-->
               </dl>
             </div>
@@ -199,6 +199,8 @@ export default {
     //   console.log(this.$store.state.car.length,"缓存数量0");
       if(this.$store.state.car.length==0){
           this.$store.commit("addTocar",product);
+          console.log(this.$store.state.car);
+          // localStorage.setItem('car',product)
         //   console.log(1,"新商品添加");
         //   console.log(this.$store.state.car,"缓存数量");
       }else{
@@ -208,12 +210,13 @@ export default {
             return ietm.spec==product.spec;
         })
         console.log(bool);
-
         if(bool){
             //如果为true 遍历商品对象 为该规格  添加该商品的数量 
             for(var i=0;i<this.$store.state.car.length;i++){
               if(this.$store.state.car[i].spec == product.spec){
                   this.$store.state.car[i].count+=product.count;
+                  // this.$store.commit('addTocar');
+                  localStorage.setItem('cars',JSON.stringify(this.$store.state.car))
                   console.log(this.$store.state.car);
                  return ;
               }

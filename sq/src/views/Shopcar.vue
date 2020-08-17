@@ -33,22 +33,26 @@
                         <th width='104'>金额(元)</th>
                         <th width='54'>操作</th>
                     </tr>
-                    <tr>
+                    <tr v-for="(item,index) of this.$store.state.cars" :key="index" class="goods">
                         <td><input type="radio"></td>
                         <td>
-                            <a href="javascript:;"><img src="" alt=""></a>
+                            <a href="javascript:;"><img :src="item.bigimg" alt="" width="64px"></a>
                         </td>
                         <td>
-                            <a href="">这是title</a>
-                            <p>x6:150</p>
+                            <a href="">{{item.title}}</a>
+                            <p>{{item.brand}}:{{item.spec}}</p>
                         </td>
-                        <td>$410.00</td>
+                        <td>￥{{item.price}}</td>
                         <td>
-                            <my-counter></my-counter>
+                            <div>
+                                <button @click="minus($event,item)" class="mybtn" :data-i="index">-</button>
+                                <input type="text" :value="item.count" class="input">
+                                <button @click="add($event,item)" class="mybtn" :data-i="index">+</button>
+                            </div>
                         </td>
                         <td>
                             <span>
-                                ￥<label>410.00</label>
+                                ￥<label>{{(item.price*item.count).toFixed(2)}}</label>
                             </span>
                         </td>
                         <td>
@@ -57,8 +61,8 @@
                     </tr>
                     <tr>
                         <th colspan="8" align="right">
-                            已选择商品 <span>n</span> 件&nbsp;&nbsp;&nbsp;
-                            商品总金额(不含运费): <span>￥0</span>
+                            <!-- 已选择商品 <span>n</span> 件&nbsp;&nbsp;&nbsp; -->
+                            商品总金额(不含运费): <span>￥{{total.toFixed(2)}}</span>
                             元
                         </th>
                     </tr>
@@ -74,11 +78,73 @@
                     <button>立即结算</button>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
 </template>
 
+<script>
+export default {
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
+        minus(e,item){
+            if(item.count>1){
+                item.count--;
+                this.$store.state.cars[e.target.dataset.i].count=item.count;
+                console.log(this.$store.state.cars[e.target.dataset.i]);
+                let cars=JSON.stringify(this.$store.state.cars);
+                localStorage.setItem('cars',cars);
+                console.log(this.$store.state.cars);
+                // this.$store.state.car=this.$store.state.car;
+            }
+        },
+        add(e,item){
+            item.count++;
+            this.$store.state.cars[e.target.dataset.i].count=item.count;
+            console.log(this.$store.state.cars[e.target.dataset.i]);
+            let cars=JSON.stringify(this.$store.state.cars);
+            localStorage.setItem('cars',cars);
+            console.log(this.$store.state.cars);
+            // this.$store.state.car=this.$store.state.car;
+        }
+    },
+    computed:{
+        total(){
+            let total=0;
+            for(let i of this.$store.state.cars){
+                total+=i.count*i.price;
+            }
+            return total;
+        }
+    }
+}
+</script>
+
 <style scoped>
+.mybtn{
+    width: 25px;
+    height: 27px;
+    font-size: 16px;
+    /* line-height: 27px; */
+    text-align: center;
+    border: 1px solid #c5c0c0;
+    overflow: hidden;
+    background-color: #fff;
+}
+.input{
+    width: 42px;
+    height: 27px;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid #c5c0c0;
+}
+.goods tr td{
+    padding: 0;
+}
 .right button:last-child{
     background: #52A152 !important;
     border: 1px solid #417F41 !important;
@@ -132,6 +198,7 @@ a{
     color: #555;
     font-size: 13px;
     border-bottom: 1px solid #f7f7f7;
+    /* line-height:25px; */
 }
 .carbox tr th{
     padding: 0.8em 0.5em;

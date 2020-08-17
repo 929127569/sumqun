@@ -36,7 +36,7 @@
                             <li v-for="(pro,k) of products" :key="k" >
                                 <router-link :to="`/details/${pro.pid}`">
                                     <img :src="pro.img.split(`|`)[0]" alt="">
-                                    <div class="price">{{pro.price}}</div>
+                                    <div class="price">¥{{pro.price}}</div>
                                     <div class="title">{{pro.title}}</div>
                                 </router-link>
                             </li> 
@@ -55,7 +55,7 @@
                             <li v-for="(pro,k) of products2" :key="k" >
                                 <router-link :to="`/details/${pro.pid}`">
                                     <img :src="pro.img.split(`|`)[0]" alt="">
-                                    <div class="price">{{pro.price}}</div>
+                                    <div class="price">¥{{pro.price}}</div>
                                     <div class="title">{{pro.title}}</div>
                                 </router-link>  
                             </li> 
@@ -74,7 +74,7 @@
                             <li v-for="(pro,k) of products3" :key="k" >
                                 <router-link :to="`/details/${pro.pid}`">
                                     <img :src="pro.img.split(`|`)[0]" alt="">
-                                    <div class="price">{{pro.price}}</div>
+                                    <div class="price">¥{{pro.price}}</div>
                                     <div class="title">{{pro.title}}</div>
                                 </router-link>
                             </li> 

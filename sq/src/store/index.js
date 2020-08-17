@@ -8,6 +8,8 @@ export default new Vuex.Store({
     isLogin:sessionStorage.getItem('isLogin')||false,
     car:[],
     // count:JSON.parse(localStorage.getItem('count')||'[]')
+    // car:JSON.parse(localStorage.getItem('car')||'[]'),
+    cars:JSON.parse(localStorage.getItem('cars')||'[]'),
   },
   mutations: {
     login_mutations(state){
@@ -15,11 +17,10 @@ export default new Vuex.Store({
     },
     logout_mutations:(state)=>{
       state.isLogin=false;
+      sessionStorage.clear();
       localStorage.clear();
     },
-    addcount(state,count){
-     
-    },
+
     // addTocar(state,product){
     //   let falg=false;
     //   state.car.forEach(item=>{
@@ -34,7 +35,7 @@ export default new Vuex.Store({
     // },
     addTocar(state,product){
       state.car.push(product);
-      //localStorage.setItem('car',JSON.stringify(product))
+      localStorage.setItem('cars',JSON.stringify(state.car));
     }
   },
   actions: {

@@ -26,14 +26,16 @@
             </div>
             <div id="cart">
                 <router-link to="/shopcar">
+                <!-- <a href="/shopcar"> -->
                     <img src="/gwc.png" alt=""><br>
                     <span>购物车</span>
+                <!-- </a>     -->
                 </router-link>
                 
             </div>
         </div>
         <div id="nav">
-            <a href="/index">商城首页</a>
+            <router-link to="/">商城首页</router-link>
             <router-link :to="i.addr" v-for="(i,k) in Title" :key="k">{{i.fname}}</router-link>
             <a href="javascript:;">联系我们</a>
         </div>
